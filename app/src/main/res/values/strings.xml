@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Simple Calculator</string>
+    <string name="btn_add">+</string>
+    <string name="btn_subtract">-</string>
+    <string name="btn_multiply">x</string>
+    <string name="btn_divide">/</string>
+    <string name="tv_result">Result</string>
+    <string name="login_text">Login</string>
+
+</resources>
