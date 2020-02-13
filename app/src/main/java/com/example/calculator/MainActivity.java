@@ -64,41 +64,46 @@
 
         @Override
         public void onClick(View v) {
-            switch (v.getId()){
-                case R.id.btn_add:
-                    String firstNumber = txt_firstNumber.getText().toString();
-                    String secondNumber = txt_secondNumber.getText().toString();
-                    int finalFirstNumber = Integer.parseInt(firstNumber);
-                    int finalSecondNumber = Integer.parseInt(secondNumber);
-                    tv_result.setText("The result is: "+(finalFirstNumber + finalSecondNumber));
-                    break;
-                case R.id.btn_subtract:
-                    String firstNumber1 = txt_firstNumber.getText().toString();
-                    String secondNumber1 = txt_secondNumber.getText().toString();
-                    int finalFirstNumber1 = Integer.parseInt(firstNumber1);
-                    int finalSecondNumber1 = Integer.parseInt(secondNumber1);
-                    tv_result.setText("The result is: "+(finalFirstNumber1 - finalSecondNumber1));
-                    break;
-                case R.id.btn_multiply:
-                    String firstNumber2 = txt_firstNumber.getText().toString();
-                    String secondNumber2 = txt_secondNumber.getText().toString();
-                    int finalFirstNumber2 = Integer.parseInt(firstNumber2);
-                    int finalSecondNumber2 = Integer.parseInt(secondNumber2);
-                    tv_result.setText("The result is: "+(finalFirstNumber2 * finalSecondNumber2));
-                    break;
-                case R.id.btn_divide:
-                    String firstNumber3 = txt_firstNumber.getText().toString();
-                    String secondNumber3 = txt_secondNumber.getText().toString();
-                    float finalFirstNumber3 = Float.parseFloat(firstNumber3);
-                    float finalSecondNumber3 = Float.parseFloat(secondNumber3);
-                    tv_result.setText("The result is: "+(finalFirstNumber3 / finalSecondNumber3));
-                    break;
-                case R.id.btn_logout:
-                    sharedPreferences = getSharedPreferences("login", MODE_PRIVATE);
-                    sharedPreferences.edit().clear().commit();
-                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                    finish();
-                    startActivity(intent);
+            try {
+                switch (v.getId()) {
+                    case R.id.btn_add:
+                        String firstNumber = txt_firstNumber.getText().toString();
+                        String secondNumber = txt_secondNumber.getText().toString();
+                        int finalFirstNumber = Integer.parseInt(firstNumber);
+                        int finalSecondNumber = Integer.parseInt(secondNumber);
+                        tv_result.setText("The result is: " + (finalFirstNumber + finalSecondNumber));
+                        break;
+                    case R.id.btn_subtract:
+                        String firstNumber1 = txt_firstNumber.getText().toString();
+                        String secondNumber1 = txt_secondNumber.getText().toString();
+                        int finalFirstNumber1 = Integer.parseInt(firstNumber1);
+                        int finalSecondNumber1 = Integer.parseInt(secondNumber1);
+                        tv_result.setText("The result is: " + (finalFirstNumber1 - finalSecondNumber1));
+                        break;
+                    case R.id.btn_multiply:
+                        String firstNumber2 = txt_firstNumber.getText().toString();
+                        String secondNumber2 = txt_secondNumber.getText().toString();
+                        int finalFirstNumber2 = Integer.parseInt(firstNumber2);
+                        int finalSecondNumber2 = Integer.parseInt(secondNumber2);
+                        tv_result.setText("The result is: " + (finalFirstNumber2 * finalSecondNumber2));
+                        break;
+                    case R.id.btn_divide:
+                        String firstNumber3 = txt_firstNumber.getText().toString();
+                        String secondNumber3 = txt_secondNumber.getText().toString();
+                        float finalFirstNumber3 = Float.parseFloat(firstNumber3);
+                        float finalSecondNumber3 = Float.parseFloat(secondNumber3);
+                        tv_result.setText("The result is: " + (finalFirstNumber3 / finalSecondNumber3));
+                        break;
+                    case R.id.btn_logout:
+                        sharedPreferences = getSharedPreferences("login", MODE_PRIVATE);
+                        sharedPreferences.edit().clear().commit();
+                        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                        finish();
+                        startActivity(intent);
+                }
+            } catch (Exception e) {
+                txt_firstNumber.setError("You must insert a number here.");
+                txt_secondNumber.setError("You must insert a number here.");
             }
         }
 
